@@ -148,7 +148,7 @@ Copy-Item -Recurse -Force "path\to\skills\arabic-editing-skill\*" ".agents\skill
 
 ### ستة أسئلة قبل التحرير
 
-<table dir="rtl">
+<table dir="rtl" align="right">
 <thead>
 <tr>
 <th align="right">السؤال</th>
@@ -185,7 +185,7 @@ Copy-Item -Recurse -Force "path\to\skills\arabic-editing-skill\*" ".agents\skill
 
 ### المستويات الخمسة
 
-<table dir="rtl">
+<table dir="rtl" align="right">
 <thead>
 <tr>
 <th align="right">المستوى</th>
@@ -234,7 +234,7 @@ Copy-Item -Recurse -Force "path\to\skills\arabic-editing-skill\*" ".agents\skill
 
 ### عيوب النصوص
 
-<table dir="rtl">
+<table dir="rtl" align="right">
 <thead>
 <tr>
 <th align="right">العيب</th>
