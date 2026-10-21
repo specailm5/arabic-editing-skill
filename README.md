@@ -1,24 +1,18 @@
 # مهارة التحرير والنقد والتدقيق
 ### (Arabic Editing & Critique Skill)
 
+<p align="center">
+  <a href="https://github.com/specailm5/arabic-editing-skill/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/specailm5/arabic-editing-skill?style=flat-square"></a>
+  <a href="https://github.com/specailm5/arabic-editing-skill/commits/master"><img alt="Last commit" src="https://img.shields.io/github/last-commit/specailm5/arabic-editing-skill?style=flat-square"></a>
+  <a href="https://specailm5.github.io/arabic-editing-skill/"><img alt="Docs" src="https://img.shields.io/badge/docs-live-brightgreen?style=flat-square"></a>
+  <img alt="Agent Skills" src="https://img.shields.io/badge/Agent%20Skills-compatible-5B21B6?style=flat-square">
+</p>
+
 **Arabic editing skill for AI agents** — edits in layers (structural, paragraph, line, copy, proof, fact-check), produces an editorial report with severity and reasons, preserves the author's voice, and refuses silent rewrites: `قام بدراسة` ← `درس`, `تم اتخاذ القرار` ← `اتخذت اللجنة القرار`. Works with Claude Code, Codex, Antigravity and VS Code agent harnesses.
 
 🔗 **الموقع المرجعي (البنية والجملة والتدقيق والتقارير): [specailm5.github.io/arabic-editing-skill](https://specailm5.github.io/arabic-editing-skill/)**
 
 > مهارة برمجية ولغوية لنماذج الذكاء الاصطناعي والمحررات الذكية (Codex، Claude Code، Antigravity IDE، VS Code Agent Harness) لتحرير النصوص العربية ونقدها وتدقيقها، استناداً إلى **«الأسلوب»** و**«أصول النقد الأدبي»** لأحمد الشايب، و**«معجم الصواب اللغوي»** لأحمد مختار عمر.
-
----
-
-## 🎬 عرض توضيحي (Demo)
-
-| قبل ❌ | بعد ✅ | المستوى |
-| :--- | :--- | :--- |
-| «قام الفريق الذي تم تشكيله من قبل الإدارة بدراسة الموضوع دراسة مستفيضة» | «درست اللجنة الموضوع» | جملة/كلمة |
-| «تم اتخاذ القرار من قبل اللجنة» | «اتخذت اللجنة القرار» | جملة |
-| «وبما أن المشروع... والذي يهدف... قد واجه... فإنه يحتاج...» | «أطلقت الوزارة المشروع... وقد واجه صعوبات مالية، فهو يحتاج إلى مراجعة» | جملة طويلة |
-| «التعليم مهم. وقد زرت المدينة القديمة. والجامعة تحتاج إلى تمويل» | «التعليم مهم، والجامعة تحتاج إلى تمويل. أما المدينة القديمة فحديث آخر» | فقرة |
-| «سعى فسعى فسعى، فما نال إلا ما نال» | «سعى طويلاً، فما نال إلا ما نال» | تكلف |
-| «تشير الدراسات إلى أن ٩٠٪...» | «تشير دراسة [الجهة، السنة] إلى أن ٩٠٪...» | مراجع |
 
 ---
 
@@ -42,7 +36,7 @@
 
 ## 📂 بنية المهارة ومكوناتها
 
-```
+<pre dir="rtl"><code>
 arabic-editing-skill/
 │
 ├── skills/arabic-editing-skill/          # المهارة (تركيب Agent Skills القياسي)
@@ -62,7 +56,7 @@ arabic-editing-skill/
 ├── .agents/skills/arabic-editing-skill/  # مسار Codex و Antigravity
 │
 └── .claude/skills/arabic-editing-skill/  # مسار Claude Code
-```
+</code></pre>
 
 ---
 
@@ -154,47 +148,134 @@ Copy-Item -Recurse -Force "path\to\skills\arabic-editing-skill\*" ".agents\skill
 
 ### ستة أسئلة قبل التحرير
 
-| السؤال | لماذا؟ |
-| :--- | :--- |
-| **ما نوع النص؟** | معايير التحرير |
-| **ما مستوى التحرير؟** | عمق التدخل |
-| **ما الجمهور؟** | اللغة والمثال |
-| **ما الغرض؟** | وضوح/قوة/جمال |
-| **هل أحفظ الصوت؟** | حجم التعديل |
-| **ما المخرج؟** | تقرير/نص/كلاهما |
+<table dir="rtl">
+<thead>
+<tr>
+<th align="right">السؤال</th>
+<th align="right">لماذا؟</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ما نوع النص؟</strong></td>
+<td>معايير التحرير</td>
+</tr>
+<tr>
+<td><strong>ما مستوى التحرير؟</strong></td>
+<td>عمق التدخل</td>
+</tr>
+<tr>
+<td><strong>ما الجمهور؟</strong></td>
+<td>اللغة والمثال</td>
+</tr>
+<tr>
+<td><strong>ما الغرض؟</strong></td>
+<td>وضوح/قوة/جمال</td>
+</tr>
+<tr>
+<td><strong>هل أحفظ الصوت؟</strong></td>
+<td>حجم التعديل</td>
+</tr>
+<tr>
+<td><strong>ما المخرج؟</strong></td>
+<td>تقرير/نص/كلاهما</td>
+</tr>
+</tbody>
+</table>
 
 ### المستويات الخمسة
 
-| المستوى | ما يعالجه | مثال |
-| :--- | :--- | :--- |
-| **بنيوي** | الأطروحة، البناء | مقال بلا أطروحة |
-| **فقرة** | وحدة الفكرة | فقرة بثلاث أفكار |
-| **جملة** | الطول، الترتيب | جملة ٦٠ كلمة |
-| **تدقيق** | النحو، الإملاء | همزة، فاصلة |
-| **تحقق** | المراجع، الأرقام | «تشير الدراسات» |
+<table dir="rtl">
+<thead>
+<tr>
+<th align="right">المستوى</th>
+<th align="right">ما يعالجه</th>
+<th align="right">مثال</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>بنيوي</strong></td>
+<td>الأطروحة، البناء</td>
+<td>مقال بلا أطروحة</td>
+</tr>
+<tr>
+<td><strong>فقرة</strong></td>
+<td>وحدة الفكرة</td>
+<td>فقرة بثلاث أفكار</td>
+</tr>
+<tr>
+<td><strong>جملة</strong></td>
+<td>الطول، الترتيب</td>
+<td>جملة ٦٠ كلمة</td>
+</tr>
+<tr>
+<td><strong>تدقيق</strong></td>
+<td>النحو، الإملاء</td>
+<td>همزة، فاصلة</td>
+</tr>
+<tr>
+<td><strong>تحقق</strong></td>
+<td>المراجع، الأرقام</td>
+<td>«تشير الدراسات»</td>
+</tr>
+</tbody>
+</table>
 
 ### قالب تقرير التحرير
 
-```
+<pre dir="rtl"><code>
 الموضع: ...
 المشكلة: ...
 الخطورة: عالية/متوسطة/منخفضة
 الاقتراح: ...
 السبب: ...
-```
+</code></pre>
 
 ### عيوب النصوص
 
-| العيب | العلاج |
-| :--- | :--- |
-| ركاكة | إحكام التركيب |
-| غموض | توضيح الفكرة |
-| تكلف | حذف الزخرفة |
-| تنافر | قراءة صوتية |
-| حشو | حذف |
-| تناقض | توحيد |
-| ابتذال | تجديد |
-| أدب لفظي | حذف |
+<table dir="rtl">
+<thead>
+<tr>
+<th align="right">العيب</th>
+<th align="right">العلاج</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ركاكة</td>
+<td>إحكام التركيب</td>
+</tr>
+<tr>
+<td>غموض</td>
+<td>توضيح الفكرة</td>
+</tr>
+<tr>
+<td>تكلف</td>
+<td>حذف الزخرفة</td>
+</tr>
+<tr>
+<td>تنافر</td>
+<td>قراءة صوتية</td>
+</tr>
+<tr>
+<td>حشو</td>
+<td>حذف</td>
+</tr>
+<tr>
+<td>تناقض</td>
+<td>توحيد</td>
+</tr>
+<tr>
+<td>ابتذال</td>
+<td>تجديد</td>
+</tr>
+<tr>
+<td>أدب لفظي</td>
+<td>حذف</td>
+</tr>
+</tbody>
+</table>
 
 ---
 
@@ -222,6 +303,24 @@ Copy-Item -Recurse -Force "path\to\skills\arabic-editing-skill\*" ".agents\skill
 
 ---
 
+## 🤝 المساهمة
+
+نرحب بالمساهمات التي تحسّن المادة أو التحرير أو التوثيق. اقرأ [CONTRIBUTING.md](CONTRIBUTING.md) قبل فتح طلب سحب، والتزم بـ[قواعد السلوك](CODE_OF_CONDUCT.md).
+
+## 🛡️ الأمان
+
+إن وجدت مشكلة أمنية، فلا تفتح قضية عامة؛ راجع [SECURITY.md](SECURITY.md).
+
+## 📄 سجل التغييرات
+
+راجع [CHANGELOG.md](CHANGELOG.md) لمعرفة ما أُضيف في كل إصدار.
+
+## 📬 الدعم
+
+للأسئلة والاقتراحات: [افتح قضية](https://github.com/specailm5/arabic-editing-skill/issues).
+
+---
+
 ## 📜 الترخيص (License)
 
-هذه المهارة مفتوحة المصدر ومتاحة للاستخدام الشخصي والتجاري والبحثي لدعم التحرير العربي.
+هذه المهارة مفتوحة المصدر تحت رخصة [MIT](LICENSE)، ومتاحة للاستخدام الشخصي والتجاري والبحثي لدعم التحرير العربي.
