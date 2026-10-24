@@ -34,113 +34,61 @@
 
 ---
 
-## 📂 بنية المهارة ومكوناتها
-
-<pre dir="rtl"><code>
-arabic-editing-skill/
-│
-├── skills/arabic-editing-skill/          # المهارة (تركيب Agent Skills القياسي)
-│   ├── SKILL.md                          # الدليل الأساسي: الطبقات والتقرير والتدقيق
-│   ├── references/                       # المراجع التفصيلية
-│   │   ├── structural_edit.md            # الأطروحة والبناء والفقرة
-│   │   ├── line_edit.md                  # الجملة والكلمة والحشو
-│   │   ├── proofreading.md               # النحو والإملاء والترقيم
-│   │   ├── fact_check.md                 # المراجع والأرقام
-│   │   └── editorial_report.md           # قالب التقرير
-│   └── examples/                         # دراسات الحالة والنماذج
-│       ├── before_after_editing.md       # نماذج قبل/بعد
-│       └── editorial_reports.md          # تقارير جاهزة
-│
-├── docs/                                 # الموقع المرجعي (GitHub Pages)
-│
-├── .agents/skills/arabic-editing-skill/  # مسار Codex و Antigravity
-│
-└── .claude/skills/arabic-editing-skill/  # مسار Claude Code
-</code></pre>
-
----
-
-## 🚀 طرق التثبيت والاستخدام (Installation Guide)
-
-تُثبَّتُ المهارةُ إما في مشروعٍ بعينه (**محلياً**)، وإما **عامةً (Global)** لتعمل في كافة المشاريع.
-
----
-
-### أولاً: التثبيت بأمر واحد عبر `npx` (الطريقة الأسرع — موصى به)
+## 🚀 التثبيت
 
 ```bash
 npx skills add specailm5/arabic-editing-skill -g -y
 ```
 
-ولاختيار بيئات بعينها أو التثبيت داخل مشروع محدد:
+<details>
+<summary>تثبيت يدوي، أو لبيئة واحدة فقط</summary>
+
+**لبيئات محددة:**
 
 ```bash
 npx skills add specailm5/arabic-editing-skill -a claude-code -a codex
-npx skills add specailm5/arabic-editing-skill --skill arabic-editing-skill -g -y
 ```
 
----
-
-### ثانياً: التثبيت العام لبيئة Claude Code و Codex و Antigravity (يدوياً)
-
-#### لنظام Windows (PowerShell):
+**Windows (PowerShell):**
 
 ```powershell
-# مصدر المهارة داخل المستودع
 $src = "skills\arabic-editing-skill"
 
-# 1. تثبيت لبيئة Claude Code
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.claude\skills\arabic-editing-skill"
 Copy-Item -Recurse -Force "$src\*" "$env:USERPROFILE\.claude\skills\arabic-editing-skill\"
 
-# 2. تثبيت لبيئة Codex و Agent Skills العامة
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.agents\skills\arabic-editing-skill"
 Copy-Item -Recurse -Force "$src\*" "$env:USERPROFILE\.agents\skills\arabic-editing-skill\"
 
-# 3. تثبيت لبيئة Google Antigravity / Gemini
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.gemini\config\skills\arabic-editing-skill"
 Copy-Item -Recurse -Force "$src\*" "$env:USERPROFILE\.gemini\config\skills\arabic-editing-skill\"
 ```
 
-#### لنظام macOS / Linux (Bash):
+**macOS / Linux:**
 
 ```bash
 src=skills/arabic-editing-skill
 
-# 1. لبيئة Claude Code
 mkdir -p ~/.claude/skills/arabic-editing-skill
 cp -r "$src/." ~/.claude/skills/arabic-editing-skill/
 
-# 2. لبيئة Codex و Agent Harness
 mkdir -p ~/.agents/skills/arabic-editing-skill
 cp -r "$src/." ~/.agents/skills/arabic-editing-skill/
 
-# 3. لبيئة Antigravity / Gemini
 mkdir -p ~/.gemini/config/skills/arabic-editing-skill
 cp -r "$src/." ~/.gemini/config/skills/arabic-editing-skill/
 ```
 
----
-
-### ثالثاً: التثبيت المحلي داخل مشروع محدد (VS Code Workspace Harness)
-
-إذا أردت حصر المهارة داخل مستودع أو مجلد عمل واحد في VS Code:
+**داخل مشروع واحد (VS Code):**
 
 ```powershell
-# داخل مجلد مشروعك الحالي:
 New-Item -ItemType Directory -Force -Path ".agents\skills\arabic-editing-skill"
 Copy-Item -Recurse -Force "path\to\skills\arabic-editing-skill\*" ".agents\skills\arabic-editing-skill\"
 ```
 
-بمجرد فتح المشروع في **VS Code** أو تشغيل `Claude Code` / `Codex`، يكتشفُ الوكيلُ المهارةَ ويقرؤها من تلقاء نفسه عند صياغة أي نص باللغة العربية.
+**بدون بيئة برمجية:** انسخ محتوى [`skills/arabic-editing-skill/SKILL.md`](skills/arabic-editing-skill/SKILL.md) إلى التعليمات المخصصة أو System Prompt.
 
----
-
-### رابعاً: الاستخدام اليدوي (Direct System Prompt / Custom Instructions)
-
-إذا كنت تستخدم واجهات الويب (مثل ChatGPT أو Claude أو Gemini) مباشرة دون بيئة برمجية:
-
-* افتح ملف [`skills/arabic-editing-skill/SKILL.md`](skills/arabic-editing-skill/SKILL.md) وانسخ محتواه وضعه في خانة **التعليمات المخصصة (Custom Instructions)** أو **System Prompt**.
+</details>
 
 ---
 
@@ -282,7 +230,6 @@ Copy-Item -Recurse -Force "path\to\skills\arabic-editing-skill\*" ".agents\skill
 </table>
 <br clear="all">
 
-
 ---
 
 ## 📚 المراجع والاعتماد
@@ -298,28 +245,26 @@ Copy-Item -Recurse -Force "path\to\skills\arabic-editing-skill\*" ".agents\skill
 
 ---
 
-## ⚠️ حدود المسؤولية
-
-- المهارة **للتحرير والنقد والتدقيق**، لا للكتابة من الصفر.
-- لا تُعيد كتابة النص صامتة.
-- لا تُقرّ رقماً أو مرجعاً بلا مصدر.
-- بعض الأحكام اللغوية خلافية؛ يُذكر الخلاف ولا يُجزم.
-- المستخدم مسؤول عن مراجعة النص النهائي.
-- لا تُستخدم المهارة للتجريح أو التحريض.
-
----
-
 ## 🤝 المساهمة
 
 نرحب بالمساهمات التي تحسّن المادة أو التحرير أو التوثيق. اقرأ [CONTRIBUTING.md](CONTRIBUTING.md) قبل فتح طلب سحب، والتزم بـ[قواعد السلوك](CODE_OF_CONDUCT.md).
+
+
+---
 
 ## 🛡️ الأمان
 
 إن وجدت مشكلة أمنية، فلا تفتح قضية عامة؛ راجع [SECURITY.md](SECURITY.md).
 
+
+---
+
 ## 📄 سجل التغييرات
 
 راجع [CHANGELOG.md](CHANGELOG.md) لمعرفة ما أُضيف في كل إصدار.
+
+
+---
 
 ## 📬 الدعم
 
@@ -330,3 +275,4 @@ Copy-Item -Recurse -Force "path\to\skills\arabic-editing-skill\*" ".agents\skill
 ## 📜 الترخيص (License)
 
 هذه المهارة مفتوحة المصدر تحت رخصة [MIT](LICENSE)، ومتاحة للاستخدام الشخصي والتجاري والبحثي لدعم التحرير العربي.
+
