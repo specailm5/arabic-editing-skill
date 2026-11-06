@@ -4,6 +4,19 @@
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-11-06
+
+### أُضيف
+- `references/meaning_gates.md`: بوابات المعنى التسع بمعايير القبول والأمثلة.
+- `references/voice_tests.md`: عشر حالات لاختبار الصوت، وطريقة تقييم من ٢٠.
+- بوابات اختيارية في مخطط السجل: `transitivity` و`quantity` و`names` و`information_structure`.
+- `scripts/test_validate_manifest.py`: أربعة اختبارات للمدقق.
+- `.github/workflows/validate-manifest.yml`: CI للمدقق والمخطط.
+
+### تغيّر
+- `validate_manifest.py` يقبل تكرار `--sources` لضم أكثر من سجل.
+- توسيع قسم «١٧.٤ بوابات المعنى» وإحالته إلى الملفين الجديدين.
+
 ## [1.3.0] - 2026-11-06
 
 ### أُضيف

@@ -28,6 +28,7 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 GATES = ["tense", "negation", "lexical", "reference", "voice"]
+EXTRA_GATES = ["transitivity", "quantity", "names", "information_structure"]
 GATE_VALUES = {"preserved", "changed_on_purpose", "fixed", "not_applicable"}
 SEVERITIES = {"blocking", "major", "minor", "style"}
 MODES = {"proofread", "edit", "rewrite", "translation-review"}
@@ -101,6 +102,9 @@ def validate(data: Dict[str, Any], source: str, corrected: str, sources: set) ->
                 errors.append(f"{label}: بوابة مفقودة: {gate}")
             elif gates[gate] not in GATE_VALUES:
                 errors.append(f"{label}: قيمة بوابة غير معروفة: {gate}={gates[gate]}")
+        for gate in EXTRA_GATES:
+            if gate in gates and gates[gate] not in GATE_VALUES:
+                errors.append(f"{label}: قيمة بوابة غير معروفة: {gate}={gates[gate]}")
 
     return errors
 
@@ -110,8 +114,9 @@ def main() -> int:
     parser.add_argument("manifest", type=Path)
     parser.add_argument("--source", type=Path, required=True)
     parser.add_argument("--corrected", type=Path, required=True)
-    parser.add_argument("--sources", type=Path, default=None,
-                        help="مسار sources.yaml في مهارة النحو")
+    parser.add_argument("--sources", type=Path, action="append", default=None,
+                        help="مسار sources.yaml (يمكن تكراره)")
+
     args = parser.parse_args()
 
     try:
@@ -123,7 +128,10 @@ def main() -> int:
     source = args.source.read_text(encoding="utf-8")
     corrected = args.corrected.read_text(encoding="utf-8")
 
-    ids = load_sources(args.sources) if args.sources and args.sources.exists() else set()
+    ids: set = set()
+    for path in args.sources or []:
+        if path.exists():
+            ids |= load_sources(path)
     errors = validate(data, source, corrected, ids)
 
     if errors:

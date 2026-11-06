@@ -155,7 +155,11 @@
             "negation": { "$ref": "#/$defs/gate" },
             "lexical": { "$ref": "#/$defs/gate" },
             "reference": { "$ref": "#/$defs/gate" },
-            "voice": { "$ref": "#/$defs/gate" }
+            "voice": { "$ref": "#/$defs/gate" },
+            "transitivity": { "$ref": "#/$defs/gate" },
+            "quantity": { "$ref": "#/$defs/gate" },
+            "names": { "$ref": "#/$defs/gate" },
+            "information_structure": { "$ref": "#/$defs/gate" }
           }
         }
       }

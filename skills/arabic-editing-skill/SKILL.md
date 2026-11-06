@@ -11,7 +11,7 @@ metadata:
         «معجم الصواب اللغوي» (أحمد مختار عمر).
     companion-skills: arabic-writing-skill, arabic-grammar-skill, arabic-balagha-skill
     language: العربية الفصحى
-    version: 1.3.0
+    version: 1.4.0
     github-path: .agents/skills/arabic-editing-skill
     github-ref: refs/heads/master
     github-repo: https://github.com/specailm5/arabic-editing-skill
@@ -559,7 +559,10 @@ metadata:
 - `references/editorial_report.md` — قالب التقرير ودرجات الخطورة.
 - `references/correction_protocol.md` — المسار الثلاثي، بوابات المعنى، سجل التغييرات.
 - `references/change_manifest.schema.json` — مخطط آلي لسجل التغييرات.
+- `references/meaning_gates.md` — بوابات حفظ المعنى التسع، بمعايير القبول وأمثلة.
+- `references/voice_tests.md` — عشر حالات لاختبار الصوت، وطريقة التقييم.
 - `scripts/validate_manifest.py` — مدقق آلي: بصمة النص، ومنع النسخ الصامت، ووجود المصدر.
+- `scripts/test_validate_manifest.py` — اختبارات المدقق الأربعة.
 - `examples/before_after_editing.md` — نماذج قبل/بعد.
 - `examples/editorial_reports.md` — تقارير جاهزة.
 
@@ -637,7 +640,10 @@ metadata:
 - التعدية وحروف الجر.
 - المطابقة والإحالة.
 - الكم والأعلام.
+- بنية المعلومات.
 - صوت الراوي ونبرته.
+
+**المرجع الكامل:** `references/meaning_gates.md` (تسع بوابات، بمعايير وأمثلة)، و`references/voice_tests.md` (عشر حالات للصوت).
 
 ### ١٧.٥ سجل التغييرات
 
@@ -670,6 +676,12 @@ python scripts/validate_manifest.py manifest.json \
   --source source.txt \
   --corrected corrected.txt \
   --sources ../../arabic-grammar-skill/skills/arabic-grammar-skill/references/sources.yaml
+```
+
+ويمكن تكرار `--sources` لضم سجل التقييم أيضاً:
+
+```bash
+  --sources ../../qalam/qalam-eval/sources.yaml
 ```
 
 المدقق يرفض: النسخ الصامت، وبصمة نص خاطئة، وتغييراً بلا مصدر، وبوابة معنى ناقصة.
